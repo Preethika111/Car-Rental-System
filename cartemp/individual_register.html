@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Individual Registration - Car Rental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: black;
+      color: #111;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      width: 420px;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      color: #222;
+      border-radius: 12px;
+      font-size: 0.95rem;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #111;
+      outline: none;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #111;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #222;
+    }
+
+    .message {
+      color: #e63946;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      color: #007aff;
+      margin-top: 15px;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Individual Registration</h2>
+    <form id="registerForm" action="register.php" method="POST">
+      <input type="hidden" name="user_type" value="individual">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="date" name="dob" placeholder="Date of Birth" required>
+      <textarea name="address" placeholder="Address" required></textarea>
+      <input type="text" name="license_no" placeholder="Driving License Number" required>
+      <input type="text" name="license_expiry" placeholder="License Expiry Year" required>
+
+      <div class="password-container">
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+    <a href="individual_login.html">Back to Login</a>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById('password');
+      pwd.type = pwd.type === 'password' ? 'text' : 'password';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      const password = document.getElementById('password').value;
+      const message = document.getElementById('message');
+
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?#&]{8,}$/;
+
+      if (!passwordPattern.test(password)) {
+        e.preventDefault();
+        message.innerText = "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium Car Rental</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #111;
+    }
+
+    .nav-left a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-left a:hover {
+      color: #000;
+    }
+
+    .profile-container {
+      position: relative;
+    }
+
+    .profile-btn {
+      background-color: #111;
+      color: white;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      width: 200px;
+      display: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .dropdown a:hover {
+      background-color: #f2f2f2;
+    }
+
+    .hero {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding: 4rem 3rem 2rem;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .hero-image {
+      flex: 1;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position:left center;
+      mix-blend-mode: multiply;
+    }
+
+    .brands {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .brands img {
+      height: 40px;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .brands img:hover {
+      filter: grayscale(0%);
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      width: 100%;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-left">
+      <div class="logo">🚗 Unique</div>
+      <a href="about.html">About Us</a>
+      <a href="car_list.php">Cars</a>
+      <a href="features.html">Features</a>
+      <a href="support.php">Help</a>
+    </div>
+    <div class="profile-container">
+      <button class="profile-btn" onclick="toggleDropdown()">Profile <i class="fas fa-caret-down"></i></button>
+      <div class="dropdown" id="profileDropdown">
+        <a href="individual_details.php">Personal Details</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="#">My Bookings</a>
+        <a href="individual_login.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Premium Car Rental in New York</h1>
+      <p>Don't deny yourself the pleasure of driving the best premium cars from around the world here and now.</p>
+    </div>
+    <div class="hero-image">
+      <img src="mercedes-benz-sclass-sedan-car-600nw-2422190331.jpeg" alt="Luxury Car" />
+    </div>
+  </section>
+
+  <section class="brands">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbmV9AM8mXDIGU0aa8hnlK6YN3PPSSWs3Z3g&s" alt="Lamborghini" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBnDhElhZIoKxwHy_kUNU5g9-AvmIQMjouOg&s" alt="BMW" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgW2HbBZWmAchMpT4UWd_bga1vl93sHcp0lQ&s" alt="Tesla" />
+    <img src="https://assets.designhill.com/design-blog/wp-content/uploads/2024/01/10.jpg" alt="Porsche" />
+    <img src="https://cdn.freebiesupply.com/logos/large/2x/mercedes-benz-9-logo-png-transparent.png" alt="Mercedes" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStHKIAXdhqnIeKzhjyrXqnmicb5WJk3xqqMg&s" alt="Lexus" />
+    <img src="https://blog.logomaster.ai/hs-fs/hubfs/ferrari-logo-1929.jpg?width=1700&height=1148&name=ferrari-logo-1929.jpg" alt="Ferrari" />
+  </section>
+
+  <footer>
+    &copy; 2025 Unique Car Rentals. All rights reserved. | Terms & Conditions | Privacy Policy
+  </footer>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.addEventListener('click', function (e) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('.profile-btn');
+      if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
